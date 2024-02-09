@@ -73,9 +73,6 @@ function calcular(tipo, valor) {
       }
     
       function realizarCalculo() {
-        if (document.getElementById('resultado').value=NaN) {
-
-        } else
         console.log(num1);
         num2_string = document.getElementById('resultado').value;
       
@@ -110,5 +107,5 @@ function calcular(tipo, valor) {
         num1 = undefined
         num2 = undefined
       }
-} 
+
 }
