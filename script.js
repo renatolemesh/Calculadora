@@ -72,7 +72,7 @@ function calcular(tipo, valor) {
         realizarCalculo();
       }
     
-      function realizarCalculo() {
+    function realizarCalculo() {
         console.log(num1);
         num2_string = document.getElementById('resultado').value;
       
