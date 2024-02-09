@@ -107,5 +107,5 @@ function calcular(tipo, valor) {
         num1 = undefined
         num2 = undefined
       }
-
+  }
 }
