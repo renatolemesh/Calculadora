@@ -65,21 +65,20 @@ function calcular(tipo, valor) {
       }
 
     function validarNum2(num2) { //Para poder clicar no resultado, o num2 deve ser valido
-      return num2 != null && num2 !== '' && !isNaN(num2);
+      return num2 != null && num2 !== '' && !isNaN(num2) && num2 != undefined;
     }
 
-    if (valor === '=') {
-        realizarCalculo();
-      }
-    
     function realizarCalculo() {
-        console.log(num1);
         num2_string = document.getElementById('resultado').value;
       
         if (operacao === '/') {
           num2 = num2_string.substring(num2_string.indexOf("/") + 1);
           num1 = parseFloat(num1);
           num2 = parseFloat(num2);
+
+          if (num1 == 0 && num2 == 0) {
+            alert('Resultado indefinido')
+          } else {         
       
           // Usar a função para validar num2
           if (validarNum2(num2)) {
@@ -87,10 +86,12 @@ function calcular(tipo, valor) {
           } else {
             console.error('num2 é inválido');
           }
+        }
         } else if (operacao === '*') {
           num2 = num2_string.substring(num2_string.indexOf("*") + 1);
           num1 = parseFloat(num1)
           num2 = parseFloat(num2)
+
           document.getElementById('resultado').value = (num1 * num2)
         } else if (operacao === '+') {
           num2 = num2_string.substring(num2_string.indexOf("+") + 1);
@@ -102,10 +103,23 @@ function calcular(tipo, valor) {
           num1 = parseFloat(num1)
           num2 = parseFloat(num2)
           document.getElementById('resultado').value = (num1 - num2)
-        }
+        } 
       
         num1 = undefined
         num2 = undefined
       }
+
+      if (valor === '=') {
+
+            realizarCalculo();
+            if (isNaN(document.getElementById('resultado').value)) {
+                console.log ('Not a number')
+                document.getElementById('resultado').value = ''
+            } else {
+                console.log(document.getElementById('resultado').value)
+                console.log('ue')
+            }
+      }        
   }
+
 }
